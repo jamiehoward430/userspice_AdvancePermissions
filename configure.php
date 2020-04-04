@@ -435,8 +435,7 @@ if($view == ''){
           <?php } ?>
         </tbody>
       </table>
-      <?php if($showAllUsers!=1) {?><a href="?view=users&showAllUsers=1" class="btn btn-primary nounderline pull-right">Show All Users</a><?php } ?>
-      <?php if($showAllUsers==1) {?><a href="?view=users" class="btn btn-primary nounderline pull-right">Show Active Users Only</a><?php } ?>
+
     </div>
   </div>
 
