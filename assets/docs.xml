@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package>
+  <name>Advanced Permissions Functions</name>
+  <author>Jamie Howard</author>
+
+  <updated>April 3, 2020</updated>
+  <description>Functions for use in the Advanced Permissions plugin</description>
+  <documentation>
+
+    <function>
+      <name>ap_hasPerm($permission,$userid)</name>
+      <description><![CDATA[Tests if the user has the general permission and returns true or false if the user has the general permission. <br />    You can use either the permimssion name or id ]]> </description>
+      <example>ap_hasPerm('permission name',$user->data()->id);</example>
+      <example>ap_hasPerm(10,$user->data()->id);</example>
+    </function>
+
+    <function>
+      <name>ap_canView($permission,$userid)</name>
+      <description><![CDATA[Tests if the user has the view permission and returns true or false if the user has the general permission. <br />   You can use either the permimssion name or id ]]> </description>
+      <example>ap_canView('permission name',$user->data()->id);</example>
+      <example>ap_canView(1,$user->data()->id);</example>
+    </function>
+
+    <function>
+      <name>ap_canEdit($permission,$userid)</name>
+      <description><![CDATA[Tests if the user has the edit permission and returns true or false if the user has the general permission. <br />  You can use either the permimssion name or id ]]> </description>
+      <example>ap_canEdit('permission name',$user->data()->id);</example>
+      <example>ap_canEdit(1,$user->data()->id);</example>
+    </function>
+
+    <function>
+      <name>ap_canDelete($permission,$userid)</name>
+      <description><![CDATA[Tests if the user has the delete permission and returns true or false if the user has the general permission. <br /> You can use either the permimssion name or id ]]> </description>
+      <example>ap_canDelete('permission name',$user->data()->id);</example>
+      <example>ap_canDelete(10,$user->data()->id);</example>
+    </function>
+
+    <function>
+      <name>ap_protectedLabel($permission, $userid, $attributes, $text, $break = false)</name>
+      <description><![CDATA[Tests if the user has the view permission and returns a html label if they have permission. <br />  Setting break true will add &lt;br&gt; after the label. ]]></description>
+      <example>ap_protectedLabel('Test Label', $user->data()->id, 'for="test"', 'Test Label', true);</example>
+      <example>ap_protectedLabel('Test Label', $user->data()->id, 'for="test"', 'Test Label');</example>
+      <example>ap_protectedLabel(1, $user->data()->id, 'for="test"', 'Test Label');</example>
+    </function>
+
+    <function>
+      <name>ap_protectedInput($permission, $userid, $attributes, $break = false)</name>
+      <description><![CDATA[Tests if the user has the view and edit permissions and returns a html input, if they only have view permission but not edit the input will be visible but disabled, if they have neither the input will not show. <br />  Setting break true will add &lt;br&gt; after the Input. ]]></description>
+      <example>ap_protectedInput('Test Input', $user->data()->id, ' type="text" name="test" class="form-control" value="Test"', true);</example>
+      <example>ap_protectedInput('Test Input', $user->data()->id, ' type="text" name="test" class="form-control" value="Test"');</example>
+      <example>ap_protectedInput(1, $user->data()->id, ' type="text" name="test" class="form-control" value="Test"');</example>
+    </function>
+
+    <function>
+      <name>ap_protectedFE($permission, $userid, $labelattributes, $inputattributes, $labeltext, $labelbreak = false, $inputbreak = false)</name>
+      <description><![CDATA[This combines ap_protectedLabel and ap_protectedInput into a single function]]> </description>
+      <example>ap_protectedFE('Test FE', $user->data()->id, 'for="test2"', ' type="text" name="test2" class="form-control" value="Test"', 'Test Label 2', true, true);</example>
+      <example>ap_protectedFE(1, $user->data()->id, 'for="test2"', ' type="text" name="test2" class="form-control" value="Test"', 'Test Label 2');</example>
+    </function>
+
+  </documentation>
+</package>
