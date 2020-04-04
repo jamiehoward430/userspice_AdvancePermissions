@@ -58,19 +58,15 @@ $db->query("CREATE TABLE `plg_advanced_perm_matches` (
 $db->query("ALTER TABLE users ADD COLUMN plg_advperm_group int(11) default 1");
 $db->query("ALTER TABLE settings ADD COLUMN plg_advperm_groups int(11) default 0");
 
-$gfields = array(
-	'name'=>'Test Group',
-);
-$db->insert('plg_advanced_perm_groups',$gfields);
+$pcheck = $db->query("SELECT * FROM plg_advanced_perm_groups WHERE name = ?",array('Plugin Test Permissions'))->count();
+if($pcheck == 0){
 
-$fields = array(
-	'name'=>'Test Permission',
-	'description'=>'Test Permission Description',
-	'group_id'=>1
-	
-);
-$db->insert('plg_advanced_perm',$fields);
-
+$db->insert('plg_advanced_perm_groups',array('name'=>'Plugin Test Permissions'));
+$db->insert('plg_advanced_perm',array('name'=>'Test Label','description'=>'View Test Label on plugin configuration page','group_id'=>1));
+$db->insert('plg_advanced_perm',array('name'=>'Test Input','description'=>'View\Edit Test Input on plugin configuration page','group_id'=>1));
+$db->insert('plg_advanced_perm',array('name'=>'Test FE','description'=>'View\Edit Test FE on plugin configuration page','group_id'=>1));
+$db->insert('plg_advanced_perm',array('name'=>'Test Section','description'=>'View Test Section on plugin configuration page','group_id'=>1));
+$db->insert('plg_advanced_perm',array('name'=>'Test Perm','description'=>'Test Permission for the example text on the plugin configuration page, must have view permission on Test Section','group_id'=>1));
 //do you want to inject your plugin in the middle of core UserSpice pages?
-
+}
 } //do not perform actions outside of this statement

@@ -218,6 +218,8 @@ if($view == ''){
 				 	 	</form>
                   	<span>
               	</div>
+
+				
 			</div> <!-- /.col -->
 
 			<div class="col-sm-6">
@@ -456,6 +458,14 @@ if($view == ''){
 			<div class="col-sm-12"><!-- .col1 -->
             <br>
             <h3>Advanced Permissions Documentation (<a href="admin.php?view=plugins_config&plugin=AdvancedPermissions">Return to Plugin</a>)</h3><br>
+			<b>NOTE! If permission inheritance is enabled and a user is a member of multiple userspice permission groups, They will recieve advanced permissions for all of those permission groups.</b><br><br>
+
+			<p>There are some example permissions included, to test them, go to manage users and set the user account your logged in with to an administrator
+			or enable permission inheritance to use the userspice built in permissions. 
+			<br>
+			Now open the Administrator tab, then choose the 'Plugin Test Permissions' group and begin testing, you will need to allow view on 'Test Section' to see it.
+			</p>
+
           Functions.<br><br>
           <?php for ($i=0; $i < $items->length ; $i++) { ?>
             <strong><a href="#<?=$items->item($i)->getElementsByTagName('name')->item(0)->childNodes->item(0)->nodeValue;?>">
